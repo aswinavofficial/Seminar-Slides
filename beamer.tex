@@ -87,7 +87,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 \item The higher the gas price set, the  transaction gets mined \pause
 \item Gas limit which indicates the maximum amount of gas you are willing to buy to execute your transaction \pause
 \item Block gas limit is the maximum cap applied to each block in Ethereum  \pause
-\item Block can only include transactions whose total sum of gas is less than 8 million \pause
+\item Block can only include transactions whose total sum of gas is less than 8 million 
 \end{itemize}
 }
 
@@ -99,7 +99,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 
 \centering
 \includegraphics[height=4cm]{proof.jpeg} \pause
-\item Ethash PoW is memory hard, making it ASIC resistant \pause
+\item Ethash PoW is memory hard, making it ASIC resistant 
 
 \end{itemize}
 }
@@ -128,131 +128,119 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 
 
 
-\subsection{Fabric - System Architecture}
-\frame{\frametitle{Fabric - System Architecture}
-Includes :  \pause
-\begin{itemize} 
-\item Nodes \pause
-\item Transactions \pause
-\item Blockchain data structures \pause
-\end{itemize}
+\subsection{System Architecture}
+\frame{\frametitle{System Architecture}
 
+\centering
+\includegraphics[height=4cm]{arch.png} \pause
 }
 
 \frame{\frametitle{Nodes}
 There are three types of nodes :  \pause
 \begin{itemize} 
-\item Client or submitting-node  \pause
+\item Client or submitting-node  \pause
     \begin{itemize}
         \item The client represents the entity that acts on behalf of an end-user.
         \item  It must connect to a peer of its choice for communicating with the blockchain.
         \item Clients create and thereby invoke transactions.
     \end{itemize}
-\item Ordering-service-node or orderer \pause
+\item Ordering-service-node or orderer \pause
     \begin{itemize}
-        \item provides delivery guarantees. 
+        \item provides delivery guarantees.
         \item provides a shared communication channel to clients and peers, offering a broadcast service for messages containing transactions.
         \item Clients create and thereby invoke transactions.
     \end{itemize}
+\item Peers host ledgers and smart contracts.
+
 \end{itemize}
 
-\item peer receives ordered state updates in the form of blocks from the ordering service and maintain the state and the ledger.
 }
 
+
+\subsection{Workflow}
 \frame{\frametitle{}
-\begin{itemize}
-\item All these computers (also called nodes) are connected to one another and have a full copy of the code and data.
-\end{itemize}
 \centering
-\includegraphics[height=4cm]{eth2.png}
+\includegraphics[height=4cm]{fabricarch.jpg}\pause
+\begin{itemize}
+\item The client creates a transaction and sends it to endorsing peers of its choice \pause
+\item The endorsing peer simulates a transaction and produces an endorsement signature \pause
+\item The submitting client collects an endorsement for a transaction and broadcasts it through ordering service \pause
+\item The ordering service delivers a transactions to the peers 
+\end{itemize}
+
 }
 
-\subsection{Addresses}
-\frame{\frametitle{Addresses}
+
+\subsection{Ordering}
+\frame{\frametitle{Ordering}
+Hyperledger Fabric provides three ordering mechanisms: 
 \begin{itemize}
-\item In Ethereum blockchain, address is the identity. \pause
-\item An Ethereum address looks like this: 001d3f1ef827552ae1114027bd3ecf1f086ba0f9 \pause
-\item An address has a corresponding private key \pause
-\item Pair of address+private key is needed to interact with the blockchain \pause
-\item Ethereum address is public and the private key should never ever be shared with anyone
+\item SOLO : involves single ordering node \pause
+\item Kafka : Kafka mechanism provides a crash fault-tolerant solution to ordering, based on Apache Kafka \pause
+\item SBFT : Simplified Byzantine Fault Tolerance \\
+             It can reach agreement even in the presence of malicious or faulty nodes
+
 \end{itemize}
 }
 
-\subsection{Accounts}
-\frame{\frametitle{Accounts}
-\begin{itemize}
-\item The combination of Ethereum address and it's private key is referred to as an account. \pause
-\item An account in Ethereum can hold balance (Ether) and can send transactions \pause
-\item Ethereum has 2 types of accounts. \pause
- \begin{enumerate}
-     \item Externally owned accounts (EOA)
-     \item Contract accounts
- \end{enumerate}
-\end{itemize}
-}
-
-\frame{\frametitle{Gas, Gas Price and Gas Limit}
-\begin{itemize}
-\item There is a cost associated with each interaction with the ethereum blockchain. \pause
-\item Need to pay Ether to the miners in the network to execute a transaction on the blockchain. \pause
-\item Unit of work is called gas. \pause
-\item Gas Price can be determined by the transaction initiator \pause
-\item The higher the gas price set, the  transaction gets mined \pause
-\item Gas limit which indicates the maximum amount of gas you are willing to buy to execute your transaction \pause
-\item Block gas limit is the maximum cap applied to each block in Ethereum  \pause
-\item Block can only include transactions whose total sum of gas is less than 8 million \pause
-\end{itemize}
-}
-
-\subsection{Consensus Mechanism}
-\frame{\frametitle{Consensus Mechanism}
-\begin{itemize}
-\item Currently, Ethereum uses mining based consensus algorithm called the Proof of Work. \pause
-\item The proof of work algorithm used is called Ethash \pause
-
+\section{Analysis} 
+\subsection{Ethereum based Voting System}
+\frame{\frametitle{Ethereum based Voting System }
 \centering
-\includegraphics[height=4cm]{proof.jpeg} \pause
-\item Ethash PoW is memory hard, making it ASIC resistant \pause
+\includegraphics[height=4cm]{dapp1.png} 
+
+}
+\frame{\frametitle{ Ethereum Transaction Details }
+\centering
+\includegraphics[height=4cm]{Transeth.png}
+
+}
+\frame{\frametitle{ Tools Used  }
+\begin{itemize}
+\item Truffle : development environment, testing framework and asset pipeline for Ethereum \pause
+\item Ganache : personal blockchain for Ethereum development \pause
+\item Metamask : bridge that allows us to visit the distributed web of tomorrow in your browser today.
 
 \end{itemize}
 }
 
-\subsection{dApps built on Ethereum}
-\frame{\frametitle{dApps built on Ethereum}
+\subsection{Fabric based Voting System}
+\frame{\frametitle{Fabric based Voting System }
+\centering
+\includegraphics[height=4cm]{fabricapp.png}  
+
+}
+\frame{\frametitle{ Fabric Transaction Details }
+\centering
+\includegraphics[height=4cm]{transfab.png}\pause
+
+}
+
+\frame{\frametitle{ Tools Used  }
 \begin{itemize}
-\item WeiFund - Decentralised Croudfunding platform. \pause
-\item Airlock - Access protocol for smart property and Internet of Things \pause
-\item Augur - Decentralised prediction market platform
-
-
+\item Composer Playground : provides a user interface for the configuration, deployment and testing of a business network \pause
+\item Docker : tool designed to make it easier to create, deploy, and run applications by using containers \pause
 \end{itemize}
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-\section{new} 
-\frame{\frametitle{Steps}
-\begin{itemize}
-\item Generate all feasable vertex maps from G onto H \pause
-\item or a vertex map, contract edges in G where the endpoints have the
-same image in H. This gives a resulting graph G0. \pause
-\item Test if H s G0. If it is, return true, otherwise iterate step 2.\pause
-\item Return false.
-\end{itemize} 
-}
-\subsection{Example}
-\frame{\frametitle{Example}
-\includegraphics[height=4cm]{graph.jpg}
+\section{Comparison} 
+\subsection{Performance}
+\frame{\frametitle{Performance}
+Analysis  in  the  paper  titled  ”Performance  Analysis  of  Private  BlockchainPlatforms in Varying Workloads”[4] shows that Hyperledger Fabric consistently performs better than Ethereum both in term of throughput and latency.
+\begin{figure}
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{throughput.png} 
+        \caption{Average Throughput}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{latency.png} 
+        \caption{Average latency}
+    \end{minipage}
+\end{figure}
 }
 
 \frame{\frametitle{SetPartitions algorithm}
