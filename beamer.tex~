@@ -1,0 +1,77 @@
+\documentclass{beamer}
+\usepackage{beamerthemeshadow}
+\usepackage{graphics}
+\begin{document}
+\title{Minor Containtment Problem}  
+\author{Rakhee M}
+\date{\today} 
+
+\frame{\titlepage} 
+
+\frame{\frametitle{Table of contents}\tableofcontents} 
+
+
+\section{Introduction} 
+\frame{\frametitle{Introduction} 
+EA graph G is a minor of a graph H if G can be obtained from a
+subgraph of H by contracting edges.
+}
+\subsection{Problem Definition}
+\frame{ 
+\begin{block}{Minor Containtment Problem}
+The minor containment problem is to determine, given two input
+graphs G and H, whether H (has a subgraph which) is a minor of G
+\end{block}
+}
+
+\section{Algorithm} 
+\frame{\frametitle{Steps}
+\begin{itemize}
+\item Generate all feasable vertex maps from G onto H \pause
+\item or a vertex map, contract edges in G where the endpoints have the
+same image in H. This gives a resulting graph G0. \pause
+\item Test if H s G0. If it is, return true, otherwise iterate step 2.\pause
+\item Return false.
+\end{itemize} 
+}
+\subsection{Example}
+\frame{\frametitle{Example}
+\includegraphics[height=4cm]{graph.jpg}
+}
+
+\frame{\frametitle{SetPartitions algorithm}
+\uncover<4->
+{setPartions(n,k)\\}
+\uncover<1-4>
+{An intger array which stores the next partition\\}
+\uncover<2-4>
+{Initially set to {1,1,...1,2,3...,k}, the smallest lexicographic partition\\}
+\uncover<3-4>{part[1..n]\\}
+\uncover<4->{finished\\}
+}
+
+\frame{\frametitle{set partitions of S(5,3)}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+No & R(5,3) & S(5,3) \\ 
+\hline
+ 1 & 11123 & 123.4.5 \\  
+ 2 & 11213 & 124.3.5 \\ 
+ 3 & 11223 & 12.34.5 \\
+\hline
+\end{tabular} 
+\end{center}
+}
+\section{Bibliography} 
+\frame{\frametitle{Reference}
+\cite{Liu}
+\cite{Graph}
+\cite{wiki}
+\bibliographystyle{alpha}
+\bibliography{biblio}
+}
+
+
+\end{document}
+
