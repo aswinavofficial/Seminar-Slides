@@ -37,7 +37,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 
 
 
-\subsection{Architecture}
+%\subsection{Architecture} %
 \frame{\frametitle{Architecture}
 \begin{itemize}
 \item Ethereum Blockchain stores the data, code and also runs the code in the EVM (Ethereum Virtual Machine).
@@ -54,7 +54,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 \includegraphics[height=4cm]{eth2.png}
 }
 
-\subsection{Addresses}
+%\subsection{Addresses}%
 \frame{\frametitle{Addresses}
 \begin{itemize}
 \item In Ethereum blockchain, address is the identity. \pause
@@ -65,7 +65,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 \end{itemize}
 }
 
-\subsection{Accounts}
+%\subsection{Accounts}%
 \frame{\frametitle{Accounts}
 \begin{itemize}
 \item The combination of Ethereum address and it's private key is referred to as an account. \pause
@@ -78,7 +78,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 \end{itemize}
 }
 
-\frame{\frametitle{Gas, Gas Price and Gas Limit}
+%\frame{\frametitle{Gas, Gas Price and Gas Limit}%
 \begin{itemize}
 \item There is a cost associated with each interaction with the ethereum blockchain. \pause
 \item Need to pay Ether to the miners in the network to execute a transaction on the blockchain. \pause
@@ -91,7 +91,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 \end{itemize}
 }
 
-\subsection{Consensus Mechanism}
+%\subsection{Consensus Mechanism}%
 \frame{\frametitle{Consensus Mechanism}
 \begin{itemize}
 \item Currently, Ethereum uses mining based consensus algorithm called the Proof of Work. \pause
@@ -104,7 +104,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 \end{itemize}
 }
 
-\subsection{dApps built on Ethereum}
+%\subsection{dApps built on Ethereum}%
 \frame{\frametitle{dApps built on Ethereum}
 \begin{itemize}
 \item WeiFund - Decentralised Croudfunding platform. \pause
@@ -128,7 +128,7 @@ graphs G and H, whether H (has a subgraph which) is a minor of G
 
 
 
-\subsection{System Architecture}
+%\subsection{System Architecture}%
 \frame{\frametitle{System Architecture}
 
 \centering
@@ -157,7 +157,7 @@ There are three types of nodes :  \pause
 }
 
 
-\subsection{Workflow}
+%\subsection{Workflow}%
 \frame{\frametitle{}
 \centering
 \includegraphics[height=4cm]{fabricarch.jpg}\pause
@@ -171,7 +171,7 @@ There are three types of nodes :  \pause
 }
 
 
-\subsection{Ordering}
+%\subsection{Ordering}%
 \frame{\frametitle{Ordering}
 Hyperledger Fabric provides three ordering mechanisms: 
 \begin{itemize}
@@ -225,9 +225,9 @@ Hyperledger Fabric provides three ordering mechanisms:
 
 
 \section{Comparison} 
-\subsection{Performance}
+%\subsection{Performance}%
 \frame{\frametitle{Performance}
-Analysis  in  the  paper  titled  ”Performance  Analysis  of  Private  BlockchainPlatforms in Varying Workloads”[4] shows that Hyperledger Fabric consistently performs better than Ethereum both in term of throughput and latency.
+Analysis  in  the  paper  titled  ”Performance  Analysis  of  Private  Blockchain Platforms in Varying Workloads”[4] shows that Hyperledger Fabric consistently performs better than Ethereum both in term of throughput and latency.
 \begin{figure}
     \centering
     \begin{minipage}{0.45\textwidth}
@@ -243,36 +243,108 @@ Analysis  in  the  paper  titled  ”Performance  Analysis  of  Private  Blockch
 \end{figure}
 }
 
-\frame{\frametitle{SetPartitions algorithm}
-\uncover<4->
-{setPartions(n,k)\\}
-\uncover<1-4>
-{An intger array which stores the next partition\\}
-\uncover<2-4>
-{Initially set to {1,1,...1,2,3...,k}, the smallest lexicographic partition\\}
-\uncover<3-4>{part[1..n]\\}
-\uncover<4->{finished\\}
+%\subsection{Architecture}% 
+\frame{\frametitle{Architecture}
+\begin{itemize}
+\item Ethereum and Hyperledger Fabric are designed keeping really different concerns in mind \pause
+\item As the Ethereum idea is to be the public blockchain for any kind of applications, it is designed to be permissionless and totally transparent \pause
+\item Fabric, on the other hand, provides modular and flexible solutions for private permissioned blockchains to allow security and confidentiality.
+
+\end{itemize} 
 }
 
-\frame{\frametitle{set partitions of S(5,3)}
-\begin{center}
+%\subsection{Ecosystem} %
+\frame{\frametitle{}
+\begin{itemize}
+\item Since Ethereum was one of the first blockchain platforms after Bitcoin, it has gained a lot of popularity \pause
+\item With that, many organizations and developers have built many tools and
+frameworks to make developing applications easier \pause
+\item Like Truffle,Ganache,Metamask \pause
+\item Fabric, on the other hand, has less if any tools besides Docker that simplify the whole development process
+
+\end{itemize} 
+}
+
+
+%\subsection{Main use cases} %
+\frame{\frametitle{Main use cases}
+\begin{itemize}
+\item As Ethereum is public and totally transparent \pause
+\item Ethereum could be effectively used for most of the ownership storages such as real estate and cryptocurrency \pause
+\item Fabric, on the other hand, provides a way to store confidential data that is required for any supply chain \pause
+
+\item Fabric can be used in applications like electronic health records or insurance, where data cannot be shared across the net-
+work but it should be accessible for specific participants \pause
+
+\end{itemize} 
+}
+
+
+%\subsection{Ease of Development}% 
+\frame{\frametitle{Ease of Development}
+\begin{itemize}
+\item Ethereum uses Solidity, being an contract-oriented language it involves a learning curve  \pause
+\item In case of fabric popular languages are supported and developer is not forced to learn a new language \pause
+\item Even though Hyperledger Fabric development is docker based, it still requires lot of time for  environment setup \pause
+
+
+\end{itemize} 
+}
+%\subsection{Summary}%
+\frame{\frametitle{Summary}
+\begin{table}[H]
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{|c|c|c|}
 \hline
-No & R(5,3) & S(5,3) \\ 
+\textsc{Characteristics} & \textsc{Ethereum} & \textsc{Hyperledger Fabric} \\ 
 \hline
- 1 & 11123 & 123.4.5 \\  
- 2 & 11213 & 124.3.5 \\ 
- 3 & 11223 & 12.34.5 \\
+ Description & Generic blockchain platform & Modular blockchain platform \\ \hline  
+ Governance & Ethereum Developers & Linux Foundation \\  \hline
+ Mode of Operation & Permissionless, public or private & Permissioned, private \\ \hline
+ Consensus & Mining based on proof of work & Pluggable PBFT \\ \hline
+ State & Key-value database & Account data \\ \hline
+ Currency & Ether & None \\ \hline
+ Mining reward & Yes & None \\ \hline
+ Transaction & Anonymous or Private & Public or Confidential \\ \hline
+ Smart Contract & Solidity programming & Go,JavaScript \\ \hline
+ Throughput & Lower & Higher \\ \hline
+ Latency & More & Less \\ \hline
+ Learning Curve & More & Less \\ \hline
+ Environment Setup & Easier & Complex \\ \hline
+ 
+ 
 \hline
-\end{tabular} 
-\end{center}
+\end{tabular}%
 }
+\caption{Summary}
+\end{table}
+}
+
+
+\section{Conclusion} 
+\frame{\frametitle{Conclusion}
+\begin{itemize}
+\item It is found that Ethereum is public blockchain and therefore have all
+the data public, it suits well for applications that are designed to interact with a whole world
+such as insurance and peer-to-peer gambling \pause
+\item Hyperledger Fabric, on the other hand, is 
+designed for private use cases such as supply chain, where every chain participant should have
+data only relevant for him \pause
+
+
+\end{itemize} 
+}
+
 
 \section{Bibliography} 
 \frame{\frametitle{Reference}
-\cite{Liu}
-\cite{Graph}
-\cite{wiki}
+\cite{1}
+\cite{2}
+\cite{3}
+\cite{4}
+\cite{5}
+\cite{6}
+\cite{7}
 \bibliographystyle{alpha}
 \bibliography{biblio}
 }
